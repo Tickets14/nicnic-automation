@@ -14,8 +14,9 @@ def sanitize_filename(filename):
 # Streamlit app
 def main():
     st.title("QR Code Generator")
-    st.subheader("v1.0.0")
+    st.subheader("v1.0.1")
     st.divider()
+
     # File uploader
     uploaded_file = st.file_uploader("Upload an Excel file", type=["xlsx"])
 
@@ -33,11 +34,14 @@ def main():
         # Clean column names to remove any leading/trailing spaces
         df.columns = df.columns.str.strip()
 
-        # Display the uploaded Excel data
-        st.subheader("Uploaded Excel Data")
+        # # Display the uploaded Excel data
+        # st.subheader("Uploaded Excel Data")
+        # st.dataframe(df)  # Display the DataFrame in an interactive table
 
-        st.dataframe(df)  # Display the DataFrame in an interactive table
-
+        # Remove newline characters from the relevant columns
+        df["VetId"] = df["VetId"].astype(str).str.strip().str.replace("\n", "")
+        df["VetOrgId"] = df["VetOrgId"].astype(str).str.strip().str.replace("\n", "")
+        df["DrugId"] = df["DrugId"].astype(str).str.strip().str.replace("\n", "")
 
         # Generate links with URL encoding
         df["Link"] = df.apply(
