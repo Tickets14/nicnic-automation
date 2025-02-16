@@ -18,6 +18,13 @@ def main():
     uploaded_file = st.file_uploader("Upload an Excel file", type=["xlsx"])
 
     if uploaded_file is not None:
+        # Let the user input the base URL
+        base_url = st.text_input(
+            "Enter the Base URL",
+            value="https://www.example.com",  # Default value
+            help="This will be used as the base for generating links."
+        )
+
         # Load the Excel file
         df = pd.read_excel(uploaded_file)
 
@@ -28,8 +35,7 @@ def main():
         st.subheader("Uploaded Excel Data")
         st.dataframe(df)  # Display the DataFrame in an interactive table
 
-        # Define the base URL
-        base_url = "https://www.pawnec.com/pet-vaccination"
+
 
         # Generate links
         df["Link"] = df.apply(
