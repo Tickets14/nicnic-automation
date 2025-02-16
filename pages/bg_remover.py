@@ -33,7 +33,7 @@ def bg_remover_page():
         img_io = io.BytesIO()
         output_image.save(img_io, format="PNG")
         img_io.seek(0)
-
+        print("testing")
         st.download_button(
             label="📥 Download Image",
             data=img_io,
