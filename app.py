@@ -2,7 +2,7 @@ import re
 import streamlit as st
 from pages.bg_remover import bg_remover_page
 from pages.qr_code_generator import qr_code_generator_page
-
+from pages.image_to_pdf import image_to_pdf_page
 st.set_page_config(
     page_title="Nic Nic Automation",
     page_icon=":robot_face:",
@@ -59,7 +59,14 @@ def main():
     st.sidebar.title("📌 Navigation")
 
     # Sidebar navigation with radio buttons
-    selected_page = st.sidebar.radio("Go to:", ["🏠 Home", "📷 QR Code Generator", "🎨 BG Remover"])
+    selected_page = st.sidebar.radio(
+        "Go to:", 
+        [
+        "🏠 Home", 
+        "📷 QR Code Generator", 
+        "🎨 BG Remover",
+        "📄 Image to PDF"
+        ])
 
     # Display the selected page
     if selected_page == "🏠 Home":
@@ -68,7 +75,8 @@ def main():
         qr_code_generator_page()
     elif selected_page == "🎨 BG Remover":
         bg_remover_page()
-
+    elif selected_page == "📄 Image to PDF":
+        image_to_pdf_page()
 if __name__ == "__main__":
     # Hide unnecessary UI elements
     st.markdown("<style> ul {display: none;} </style>", unsafe_allow_html=True)
