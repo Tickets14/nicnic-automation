@@ -1,2 +1,3 @@
 venv
 qr_code
+.streamlit/secrets.toml
