@@ -30,11 +30,6 @@ def introduction_page():
         }
         </style>
 
-        ## 🚀 **Welcome to the Multi-Tool Web App!**
-        A simple and efficient tool for generating QR codes and more.
-
-        <hr>
-
         ### 📌 **Features**
   
         #### 🎯 **QR Code Generator**
@@ -45,7 +40,16 @@ def introduction_page():
         <hr>
 
         #### 🎨 **Image Background Remover** 
-        🚧 *(Coming Soon! Stay tuned for updates.)*
+        ✅ **Upload** an **image**  
+        ✅ **Remove** the **background** from the image  
+        ✅ **Download** the **processed image**  
+        <hr>
+
+        #### 📄 **Image to PDF Converter** 
+        ✅ **Upload** multiple **images**  
+        ✅ **Convert** them into a single **PDF**  
+        ✅ **Download** the **converted PDF**  
+        <hr>
 
         """,
         unsafe_allow_html=True
