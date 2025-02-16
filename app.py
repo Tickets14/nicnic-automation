@@ -5,6 +5,7 @@ import re
 import streamlit as st
 import zipfile
 from io import BytesIO
+from urllib.parse import quote
 
 # Function to sanitize filenames (removes invalid characters)
 def sanitize_filename(filename):
@@ -13,7 +14,8 @@ def sanitize_filename(filename):
 # Streamlit app
 def main():
     st.title("QR Code Generator")
-
+    st.subheader("v1.0.0")
+    st.divider()
     # File uploader
     uploaded_file = st.file_uploader("Upload an Excel file", type=["xlsx"])
 
@@ -21,7 +23,7 @@ def main():
         # Let the user input the base URL
         base_url = st.text_input(
             "Enter the Base URL",
-            value="https://www.example.com",  # Default value
+            value="https://www.pawnec.com/pet-vaccination",  # Default value
             help="This will be used as the base for generating links."
         )
 
@@ -33,13 +35,13 @@ def main():
 
         # Display the uploaded Excel data
         st.subheader("Uploaded Excel Data")
+
         st.dataframe(df)  # Display the DataFrame in an interactive table
 
 
-
-        # Generate links
+        # Generate links with URL encoding
         df["Link"] = df.apply(
-            lambda row: f"{base_url}/{row['VetId']}/{row['VetOrgId']}/{row['DrugId']}", axis=1
+            lambda row: f"{base_url}/{quote(str(row['VetId']))}/{quote(str(row['VetOrgId']))}/{quote(str(row['DrugId']))}", axis=1
         )
 
         # Display the DataFrame with generated links
