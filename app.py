@@ -1,14 +1,12 @@
-import pandas as pd
-import qrcode
-import os
 import re
 import streamlit as st
-import zipfile
-from io import BytesIO
-from urllib.parse import quote
+from pages.bg_remover import bg_remover_page
 from pages.qr_code_generator import qr_code_generator_page
 
-
+st.set_page_config(
+    page_title="Nic Nic Automation",
+    page_icon=":robot_face:",
+)
 # Function to sanitize filenames (removes invalid characters)
 def sanitize_filename(filename):
     return re.sub(r'[<>:"/\\|?*]', '_', filename)  # Replace invalid characters with '_'
@@ -69,10 +67,9 @@ def main():
     elif selected_page == "📷 QR Code Generator":
         qr_code_generator_page()
     elif selected_page == "🎨 BG Remover":
-        print("something")
+        bg_remover_page()
 
 if __name__ == "__main__":
     # Hide unnecessary UI elements
     st.markdown("<style> ul {display: none;} </style>", unsafe_allow_html=True)
-
     main()
