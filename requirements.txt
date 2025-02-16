@@ -2,6 +2,9 @@ openpyxl
 pandas
 pillow
 qrcode
+
 streamlit
 rembg
+numpy
 onnxruntime
+scipy
