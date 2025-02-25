@@ -1,6 +1,7 @@
 import re
 import streamlit as st
 from pages.bg_remover import bg_remover_page
+from pages.chatbot import chatbot_page
 from pages.qr_code_generator import qr_code_generator_page
 from pages.image_to_pdf import image_to_pdf_page
 st.set_page_config(
@@ -69,7 +70,8 @@ def main():
         "🏠 Home", 
         "📷 QR Code Generator", 
         "🎨 BG Remover",
-        "📄 Image to PDF"
+        "📄 Image to PDF",
+        "🤖 Chatbot"
         ])
 
     # Display the selected page
@@ -81,6 +83,8 @@ def main():
         bg_remover_page()
     elif selected_page == "📄 Image to PDF":
         image_to_pdf_page()
+    elif selected_page == "🤖 Chatbot":
+        chatbot_page()
 if __name__ == "__main__":
     # Hide unnecessary UI elements
     st.markdown("<style> ul {display: none;} </style>", unsafe_allow_html=True)

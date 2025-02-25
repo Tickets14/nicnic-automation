@@ -7,8 +7,7 @@ from urllib.parse import quote
 
 def qr_code_generator_page():
     st.title("QR Code Generator")
-    st.subheader("v1.1.0", divider="green")
-
+    st.subheader("Generate QR codes for URLs from an Excel file with multiple sheets.")
     # File uploader
     uploaded_file = st.file_uploader("Upload an Excel file", type=["xlsx"])
 
