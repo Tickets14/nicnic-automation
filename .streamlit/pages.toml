@@ -1,0 +1,19 @@
+[[pages]]
+path = "pages_section/introduction_page.py"
+name = "Home"
+icon = "🏠"  # Home emoji
+
+[[pages]]
+path = "pages_section/qr_code_generator.py"
+name = "QR Code Generator"
+icon = "📷"  # Camera emoji
+
+[[pages]]
+path = "pages_section/bg_remover.py"
+name = "Background Remover"
+icon = "🖼️"  # Framed picture emoji
+
+[[pages]]
+path = "pages_section/image_to_pdf.py"
+name = "Image to PDF"
+icon = "📄"  # Page emoji

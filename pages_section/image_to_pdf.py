@@ -4,7 +4,7 @@ import io
 
 def image_to_pdf_page():
     st.title("📄 Image to PDF Converter")
-    st.subheader("Easily convert images into a single PDF!")
+    st.subheader("Easily convert images into a single PDF!", divider="rainbow")
 
     # Upload multiple images
     uploaded_files = st.file_uploader(
@@ -35,3 +35,4 @@ def image_to_pdf_page():
 
             st.success("✅ PDF created successfully!")
 
+image_to_pdf_page()

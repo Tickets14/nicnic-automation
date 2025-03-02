@@ -7,7 +7,7 @@ from urllib.parse import quote
 
 def qr_code_generator_page():
     st.title("QR Code Generator")
-    st.subheader("v1.1.0", divider="green")
+    st.subheader("Excel to QR Code", divider="rainbow")
 
     # File uploader
     uploaded_file = st.file_uploader("Upload an Excel file", type=["xlsx"])
@@ -24,6 +24,11 @@ def qr_code_generator_page():
             # Load the selected sheet without headers to let the user pick
             raw_df = pd.read_excel(xls, sheet_name=selected_sheet, header=None)
 
+            # Check if the DataFrame is empty
+            if len(raw_df) == 0:
+                st.error("⚠️ The selected worksheet is empty. Please upload a file with data.")
+                return  # Stop further execution
+
             # Let the user choose the row number for column headers (1-based index)
             header_row_1based = st.number_input(
                 "Select the row number for column headers",
@@ -31,14 +36,14 @@ def qr_code_generator_page():
             )
 
             # Convert to 0-based index for pandas
-            header_row = header_row_1based - 1  
+            header_row = header_row_1based - 1
 
             # Load the sheet again with the selected header row
             df = pd.read_excel(xls, sheet_name=selected_sheet, header=header_row)
 
             # Clean column names to remove any leading/trailing spaces
             df.columns = df.columns.str.strip()
-            
+
             # Let the user input the base URL
             base_url = st.text_input(
                 "Enter the Base URL",
@@ -46,15 +51,14 @@ def qr_code_generator_page():
                 help="This will be used as the base for generating links."
             )
 
-            # Display all column names
-            st.write("📌 **Available Columns:**")
-            st.write(", ".join(df.columns))
-
+        if base_url:
             # Let the user select columns for link generation
             selected_columns = st.multiselect(
                 "Select columns to include in the generated link (order matters)", df.columns
             )
-
+            # Display "Link Format" in bold and the rest as plain text
+            st.markdown(f"**Link Format:** {base_url.replace('https://', '').replace('www.', '')}/{'/'.join(selected_columns)}")
+            st.code(f"{base_url}/{'/'.join(selected_columns)}")
             if selected_columns and base_url:
                 # Remove newline characters from selected columns
                 for col in selected_columns:
@@ -101,3 +105,6 @@ def qr_code_generator_page():
                     file_name="qrcodes.zip",
                     mime="application/zip"
                 )
+
+
+qr_code_generator_page()

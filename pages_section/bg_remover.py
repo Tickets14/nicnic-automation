@@ -5,7 +5,7 @@ import io
 
 def bg_remover_page():
     st.title("🖼️ Background Remover")
-    st.subheader("Remove backgrounds from images effortlessly!")
+    st.subheader("Remove backgrounds from images effortlessly!", divider="rainbow")
 
     uploaded_file = st.file_uploader("📂 Upload an image", type=["png", "jpg", "jpeg"])
 
@@ -40,3 +40,6 @@ def bg_remover_page():
             file_name="bg_removed.png",
             mime="image/png",
         )
+
+
+bg_remover_page()
