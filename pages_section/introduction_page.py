@@ -10,6 +10,10 @@ def introduction_page():
     st.title("📌 Welcome to Nic Nic Automation!")
     st.subheader("v2.0.0", divider="rainbow")  # Add a colorful divider
     
+def introduction_page():
+    st.title("📌 Welcome to Nic Nic Automation!")
+    st.subheader("v2.0.0", divider="rainbow")  # Add a colorful divider
+    
     st.markdown(
         """
         <style>
@@ -21,13 +25,13 @@ def introduction_page():
         .feature-card {
             padding: 1.5rem;
             border-radius: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #e0e0e0;
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
             margin-bottom: 1.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .feature-card h3 {
-            color: #4CAF50;
+            color: var(--primary-color);
             margin-top: 0;
         }
         .feature-card ul {
@@ -35,10 +39,16 @@ def introduction_page():
         }
         .feature-card li {
             margin-bottom: 0.5rem;
+            color: var(--text-color);
         }
         hr {
-            border: 1px solid #4CAF50;
+            border: 1px solid var(--primary-color);
             margin: 1.5rem 0;
+        }
+        .footer {
+            text-align: center;
+            color: var(--text-color);
+            opacity: 0.8;
         }
         </style>
         """,
@@ -101,11 +111,10 @@ def introduction_page():
     st.markdown(
         """
         <hr>
-        <p style="text-align: center; color: #666;">✨ Explore the features above to automate your tasks effortlessly! ✨</p>
+        <p class="footer">✨ Explore the features above to automate your tasks effortlessly! ✨</p>
         """,
         unsafe_allow_html=True
     )
-
 
 # Call the introduction page function
 introduction_page()
