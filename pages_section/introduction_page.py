@@ -5,13 +5,9 @@ import streamlit as st
 def sanitize_filename(filename):
     return re.sub(r'[<>:"/\\|?*]', '_', filename)  # Replace invalid characters with '_'
 
-# Function for the Introduction Page
+
 def introduction_page():
-    st.title("📌 Welcome to Nic Nic Automation!")
-    st.subheader("v2.0.0", divider="rainbow")  # Add a colorful divider
-    
-def introduction_page():
-    st.title("📌 Welcome to Nic Nic Automation!")
+    st.title(":wave: Welcome to Nic Nic Automation!")
     st.subheader("v2.0.0", divider="rainbow")  # Add a colorful divider
     
     st.markdown(
@@ -108,6 +104,21 @@ def introduction_page():
         unsafe_allow_html=True
     )
     
+    st.markdown(
+        """
+        <div class="feature-card">
+            <h3>🤖 Dumb AI xd</h3>
+            <ul>
+                <li>⚠️ <strong>Still in development</strong></li>
+                <li>✅ <strong>Get</strong> answers to your questions</li>
+                <li>✅ <strong>Get</strong> explanations on various topics</li>
+                <li>✅ <strong>Get</strong> suggestions and recommendations</li>
+            </ul>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
     st.markdown(
         """
         <hr>

@@ -17,3 +17,8 @@ icon = "🖼️"  # Framed picture emoji
 path = "pages_section/image_to_pdf.py"
 name = "Image to PDF"
 icon = "📄"  # Page emoji
+
+[[pages]]
+path = "pages_section/chatbot.py"
+name = "Chatbot (Experimental)"
+icon = "🤖"  # Page emoji
